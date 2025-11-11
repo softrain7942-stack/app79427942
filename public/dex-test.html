@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GCV DEX Test</title>
+</head>
+<body>
+  <h2>🚀 GCV DEX 기능 테스트 페이지</h2>
+  <p>이 페이지는 Pi Wallet과 연동되는 DEX 테스트용 페이지입니다.</p>
+
+  <button id="connectBtn">지갑 연결</button>
+  <p id="status"></p>
+
+  <script>
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          document.getElementById('status').innerText = '연결된 지갑 주소: ' + accounts[0];
+        } catch (error) {
+          document.getElementById('status').innerText = '지갑 연결 취소됨.';
+        }
+      } else {
+        document.getElementById('status').innerText = 'Web3 지갑을 찾을 수 없습니다. (예: MetaMask)';
+      }
+    }
+    document.getElementById('connectBtn').addEventListener('click', connectWallet);
+  </script>
+</body>
+</html>
+
