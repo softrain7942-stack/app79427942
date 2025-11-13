@@ -2,20 +2,26 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+이 프로젝트에서 현재 보안 업데이트를 지원하는 버전입니다:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 5.1.x   | ✅ (지원됨)         |
+| 5.0.x   | ❌ (지원 종료)      |
+| 4.0.x   | ✅ (지원됨)         |
+| < 4.0   | ❌ (지원 종료)      |
+
+---
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+보안 취약점을 발견하셨다면 아래 이메일로 즉시 알려주세요:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+📧 **Contact:** softrain7942@gmail.com
+
+보고하신 취약점은 검토 후 최대한 신속히 대응하겠습니다.  
+보안 이슈는 공개 이슈 탭(Issues)에 올리지 말고 위 이메일로만 제보해 주세요.
+
+- 확인 후 48시간 이내 접수 회신  
+- 수정이 완료되면 관련 업데이트 공지 예정  
+- 긴급 취약점의 경우 우선적으로 패치 적용
