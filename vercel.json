@@ -1,0 +1,11 @@
+{
+  "builds": [
+    { "src": "public/.well-known/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    {
+      "src": "/.well-known/(.*)",
+      "dest": "/.well-known/$1"
+    }
+  ]
+}
