@@ -1,10 +1,10 @@
-{ 
+{
   "builds": [
     { "src": ".well-known/**", "use": "@vercel/static" },
     { "src": "public/index.html", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/.well-known/(.*)", "dest": "/.well-known/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/(.*)", "dest": "/public/index.html" }
   ]
 }
