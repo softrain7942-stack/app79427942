@@ -9,25 +9,16 @@
   <h1>내 파이 앱 (메인넷 대기중)</h1>
   <p>아래 버튼 누르면 바로 Pi 지갑 연결돼요!</p>
 
+  <!-- 1. Pi SDK 본체 불러오기 (필수) -->
   <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-  <script>
-    Pi.init({ version: "2.0", sandbox: false });
-    function onIncompletePaymentFound(payment) {
-      return Pi.completePayment(payment.paymentId, { txid: null });
-    }
-    async function piLogin() {
-      try {
-        const scopes = ['username', 'payments'];
-        const authResult = await Pi.authenticate(scopes, onIncompletePaymentFound);
-        alert("Pi 로그인 성공! 🎉\nUID: " + authResult.user.uid);
-      } catch (err) {
-        alert("로그인 실패: " + err.message);
-      }
-    }
-  </script>
 
-  <button onclick="piLogin()" style="font-size:20px; padding:15px 30px; background:#5f3dc4; color:white; border:none; border-radius:10px;">
+  <!-- 2. 우리가 만든 로그인 로직 불러오기 (여기서 sandbox: false 포함) -->
+  <script src="/pi_login.js"></script>
+
+  <!-- 3. 예쁜 로그인 버튼 -->
+  <button onclick="piLogin()" style="font-size:20px; padding:15px 30px; background:#5f3dc4; color:white; border:none; border-radius:12px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
     Pi로 로그인
   </button>
+
 </body>
 </html>
