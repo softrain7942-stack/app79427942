@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const Pi = window.Pi;
-    Pi.init({ version: "2.0", sandbox: true });  // 여기서 SDK 초기화
+    Pi.init({ version: "2.0", sandbox: true }); // Sandbox 테스트 모드
 
     function onIncompletePaymentFound(payment) {
         return Pi.completePayment(payment.paymentId, { txid: null });
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.piLogin = async function() {
         try {
-            const scopes = ['username', 'payments'];  // 권한 요청
+            const scopes = ['username', 'payments'];
             const authResult = await Pi.authenticate(scopes, onIncompletePaymentFound);
 
             console.log("로그인 성공! UID:", authResult.user.uid);
@@ -25,4 +25,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 });
-
