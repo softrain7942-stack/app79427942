@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const Pi = window.Pi;
-    Pi.init({ version: "2.0", sandbox: true }); // Sandbox 테스트 모드
+    Pi.init({ version: "2.0", sandbox: true });
 
     function onIncompletePaymentFound(payment) {
         return Pi.completePayment(payment.paymentId, { txid: null });
