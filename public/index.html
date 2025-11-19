@@ -8,8 +8,6 @@
     <h1>Hello Pi Network</h1>
     <p>This is my Pi App.</p>
 
-    <!-- 여기서부터 Pi SDK 기능 추가 부분 -->
-
     <!-- Pi SDK 로드 -->
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
 
@@ -23,7 +21,7 @@
 
             const Pi = window.Pi;
 
-            // 테스트 중이면 true, 메인넷이면 false
+            // SDK 초기화 (테스트 모드)
             Pi.init({ version: "2.0", sandbox: true });
 
             function onIncompletePaymentFound(payment) {
@@ -37,7 +35,7 @@
                     const scopes = ['username', 'payments']; // username / payments 권한 요청
                     const authResult = await Pi.authenticate(scopes, onIncompletePaymentFound);
 
-                    console.log("로그인 성공! 유저 UID:", authResult.user.uid);
+                    console.log("로그인 성공! UID:", authResult.user.uid);
                     console.log("유저 정보:", authResult.user);
                     console.log("액세스 토큰:", authResult.accessToken);
 
