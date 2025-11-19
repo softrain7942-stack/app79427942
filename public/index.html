@@ -16,6 +16,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             if (!window.Pi) {
                 console.error("Pi SDK not loaded");
+                alert("Pi SDK 로드 실패! 네트워크 상태 확인 필요.");
                 return;
             }
 
@@ -26,7 +27,6 @@
 
             function onIncompletePaymentFound(payment) {
                 console.log("미완료 결제 발견:", payment);
-                // 예시: 자동으로 완료 처리
                 return Pi.completePayment(payment.paymentId, { txid: null });
             }
 
