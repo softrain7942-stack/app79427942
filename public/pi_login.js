@@ -1,10 +1,19 @@
-// public/pi_login.js — 이거만 딱 넣고 저장하면 끝!
+// PC 테스트용 더미 Pi 객체
+if (typeof window !== 'undefined' && !window.Pi) {
+    window.Pi = {
+        authenticate: async () => ({ user: { uid: 'TEST-UID' } })
+    };
+}
+
+// 실제 Pi SDK가 존재하면 초기화
 if (typeof window !== 'undefined' && window.Pi) {
     const Pi = window.Pi;
     Pi.init({ version: "2.0", sandbox: false });
+
     function onIncompletePaymentFound(payment) {
         return Pi.completePayment(payment.paymentId, { txid: null });
     }
+
     window.piLogin = async function () {
         try {
             const scopes = ['username', 'payments'];
