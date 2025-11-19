@@ -1,20 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>My Pi App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>내 파이 앱 - 메인넷 준비 완료</title>
 </head>
 <body>
-    <h1>Hello Pi Network</h1>
-    <p>This is my Pi App.</p>
+  <h1>내 파이 앱 (메인넷 대기중)</h1>
+  <p>아래 버튼 누르면 바로 Pi 지갑 연결돼요!</p>
 
-    <!-- 1. Pi SDK 먼저 로드 -->
-    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+  <script>
+    Pi.init({ version: "2.0", sandbox: false });
+    function onIncompletePaymentFound(payment) {
+      return Pi.completePayment(payment.paymentId, { txid: null });
+    }
+    async function piLogin() {
+      try {
+        const scopes = ['username', 'payments'];
+        const authResult = await Pi.authenticate(scopes, onIncompletePaymentFound);
+        alert("Pi 로그인 성공! 🎉\nUID: " + authResult.user.uid);
+      } catch (err) {
+        alert("로그인 실패: " + err.message);
+      }
+    }
+  </script>
 
-    <!-- 2. JS 파일 불러오기 -->
-    <script src="/pi_login.js"></script>
-
-    <!-- 3. 로그인 버튼 -->
-    <button onclick="piLogin()">Pi로 로그인</button>
+  <button onclick="piLogin()" style="font-size:20px; padding:15px 30px; background:#5f3dc4; color:white; border:none; border-radius:10px;">
+    Pi로 로그인
+  </button>
 </body>
 </html>
