@@ -8,7 +8,7 @@ if (typeof window !== 'undefined' && !window.Pi) {
 // 실제 Pi SDK가 존재하면 초기화
 if (typeof window !== 'undefined' && window.Pi) {
     const Pi = window.Pi;
-    Pi.init({ version: "2.0", sandbox: false });
+    Pi.init({ version: "2.0", sandbox: true });
 
     function onIncompletePaymentFound(payment) {
         return Pi.completePayment(payment.paymentId, { txid: null });
